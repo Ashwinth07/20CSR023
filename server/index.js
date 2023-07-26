@@ -2,17 +2,14 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
-import authRoute from "./routes/authRoute.js";
-import flightRoute from "./routes/flightRoute.js";
-import bookingRoute from "./routes/bookingRoute.js";
-// import { sendMailUsingNodemailer } from "./node mailer/nodemailer.js";
+import registertrain from "./routes/registertrain.js"
 
 dotenv.config();
 const app = express();
 mongoose.set("strictQuery", false);
 const connect = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect("mongodb+srv://ashwinthk20cse:12345@cluster0.wco2yqk.mongodb.net/train?retryWrites=true&w=majority");
     console.log("mongodb connected");
   } catch (error) {
     throw error;
